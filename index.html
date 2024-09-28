@@ -1,18 +1,71 @@
 <!DOCTYPE html>  
-<html>  
+<html lang="zh-CN">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>随机点名工具</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #f4f4f4;  
+            color: #333;  
+            text-align: center;  
+            padding: 20px;  
+        }  
+        h1 {  
+            color: #4CAF50;  
+        }  
+        #nameList {  
+            display: none; /* 隐藏原始名单 */  
+        }  
+        #result {  
+            font-size: 24px;  
+            margin: 20px 0;  
+            padding: 10px;  
+            border: 2px solid #4CAF50;  
+            border-radius: 5px;  
+            background-color: #fff;  
+        }  
+        button {  
+            padding: 10px 20px;  
+            font-size: 16px;  
+            color: #fff;  
+            background-color: #4CAF50;  
+            border: none;  
+            border-radius: 5px;  
+            cursor: pointer;  
+        }  
+        button:hover {  
+            background-color: #45a049;  
+        }  
+    </style>  
+</head>  
 <body>  
-    <h2>随机点名</h2>  
-    <input type="text" id="names" placeholder="输入姓名，用逗号分隔">  
+
+    <h1>随机点名工具</h1>  
+    <p>点击下面的按钮随机选出一名学生：</p>  
     <button onclick="pickRandomName()">随机点名</button>  
-    <p id="result"></p>  
+    <div id="result"></div>  
+
+    <div id="nameList">  
+        <!-- 学生名单 -->  
+        周梓晟, 普韩霖, 赵瑞, 王昱杰, 郭浩源, 胡哲闻, 阮名扬, 吴妮,  
+        梁雨禾, 王睿, 薛皓天, 杨璨宇, 缪咏航, 郑航, 郑岚月, 马湘媛,  
+        何玉娴, 王玮琪, 廖晋, 董泽臻, 李铭, 孔召文, 蔡美曦, 杨惟雅,  
+        陶梦燃, 孙一兮, 邱丽芳, 杨欣如, 徐琛洋, 王诗政, 鲁嘉怡, 宋雨蒙,  
+        杨家豪, 刘鉴辉, 杨世安, 戴铭君, 赵伯润, 周永镜琨, 杨斯齐, 张筱,  
+        史仲易, 周建旭, 彭一城, 杨闻睿, 黄昱程, 马楚畅, 赵欣玥, 黎珉妤,  
+        沈海洋, 李博浩, 陈博睿, 刘恩豪, 宴梓豪, 宋韵闻, 陈诺, 周晓妍  
+    </div>  
 
     <script>  
         function pickRandomName() {  
-            const names = document.getElementById('names').value.split(',');  
+            const names = document.getElementById('nameList').innerText.split(',');  
             const randomIndex = Math.floor(Math.random() * names.length);  
             const randomName = names[randomIndex].trim();  
             document.getElementById('result').innerText = '被点到的人是: ' + randomName;  
         }  
     </script>  
+
 </body>  
 </html>
